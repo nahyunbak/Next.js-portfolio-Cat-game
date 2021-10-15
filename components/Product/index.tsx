@@ -12,17 +12,33 @@ import {
 import Axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { productState } from "../../recoilAtom/language";
+import { productState, purchasedProductState } from "../../recoilAtom/language";
 
 const Product = ({ list }) => {
-  console.log(list[1]);
+  //리코일에 저장된 list값은 죄다 삭제
+  const [products, setProducts] = useRecoilState(productState);
+  const [purchasedProducts, setPurchasedProducts] = useRecoilState(
+    purchasedProductState
+  );
+  useEffect(() => setProducts(list), [setProducts, list]);
 
+  const purchaseProduct = (e, item: Object) => {
+    console.log(item.id, e.target.getAttribute("name"));
+    setProducts((oldState: any) =>
+      oldState.filter(
+        (item) => item.id !== parseInt(e.target.getAttribute("name"))
+      )
+    );
+    setPurchasedProducts((oldState: any) => [...oldState, item]);
+  };
+
+  console.log(products, purchasedProducts);
   return (
     <>
       <ProductWrapper>
         <ProductArea>
-          {list &&
-            list.map((item) => (
+          {products &&
+            products.map((item) => (
               <>
                 <ProductItemWrapper>
                   <ProductLink href={item.product_link} target="_blank">
@@ -34,7 +50,13 @@ const Product = ({ list }) => {
                     </ProductItemName>
                     <ProductItemPrice>${item.price}</ProductItemPrice>
                   </ProductItemDetail>
-                  <ProductItemButton>구매</ProductItemButton>
+                  <ProductItemButton
+                    key={item.id}
+                    name={item.id}
+                    onClick={(e) => purchaseProduct(e, item)}
+                  >
+                    구매
+                  </ProductItemButton>
                 </ProductItemWrapper>
               </>
             ))}

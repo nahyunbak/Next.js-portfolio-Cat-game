@@ -16,7 +16,6 @@ export default function Home({ list }) {
     Aos.init({ duration: 2000 });
   }, []);
 
-  const [products, setProducts] = useRecoilState(productState);
   return (
     <>
       <Head>
@@ -45,9 +44,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       },
     };
   }
-
   console.log(data[2]);
-
   return {
     props: { list: data },
   };

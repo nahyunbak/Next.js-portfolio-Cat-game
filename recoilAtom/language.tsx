@@ -159,3 +159,13 @@ export const productState = atom({
   key: "productState",
   default: [],
 });
+
+export const purchasedProductState = atom({
+  key: "purchasedProductState",
+  default: [],
+});
+
+export const purchasedListState = atom({
+  key: "purchasedProductListState",
+  default: [],
+});

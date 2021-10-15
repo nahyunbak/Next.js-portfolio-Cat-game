@@ -1,6 +1,8 @@
 import { HeaderArea, HeaderWrapper } from "./StyledHeader";
 import Axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import { productState } from "../../recoilAtom/language";
 
 const Header = () => {
   return (

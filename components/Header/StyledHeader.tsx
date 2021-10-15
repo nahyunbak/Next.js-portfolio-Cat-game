@@ -19,4 +19,14 @@ export const HeaderArea = styled.div`
   cursor: pointer;
   ${CenterCenterStyle};
   ${HeaderTitleStyle1}
+  border-radius: 10px;
+
+  @media screen and (max-width: 1300px) {
+    width: 90vw;
+    font-size: 5rem;
+  }
+
+  @media screen and (max-width: 537px) {
+    font-size: 3rem;
+  }
 `;

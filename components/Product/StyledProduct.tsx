@@ -8,16 +8,14 @@ const HeaderTitleStyle1 = css`
 `;
 export const ProductWrapper = styled.div`
   width: 100vw;
-  padding: 50px;
+
   ${CenterCenterStyle};
 `;
 
 export const ProductArea = styled.div`
   display: grid;
-  width: 1300px;
-
+  width: 1250px;
   grid-template-columns: repeat(auto-fill, 200px);
-
   grid-auto-rows: minmax(250px, 300px);
   padding-bottom: 50px;
   grid-gap: 10px;
@@ -28,7 +26,6 @@ export const ProductLink = styled.a`
 `;
 export const ProductItemWrapper = styled.div`
   ${verticalCenterStyle}
-  width: 200px;
 
   padding: 10px;
 `;
