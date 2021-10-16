@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 
 import LinkN from "next/link";
-import { Link as Links } from "react-scroll";
 
 //정중앙
 export const CenterCenterStyle = css`
@@ -30,12 +29,6 @@ export const horizontalCenterStyle = css`
 
 export const GlobalLink = styled(LinkN)`
   text-decoration: none;
-`;
-
-export const LiWrapper = styled(Links)`
-  font-size: 1rem;
-  list-style-type: none;
-  cursor: pointer;
 `;
 
 // 제품 공통 스타일링

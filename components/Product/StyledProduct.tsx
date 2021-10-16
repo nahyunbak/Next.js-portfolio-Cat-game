@@ -40,7 +40,7 @@ export const ProductItemName = styled.div`
 export const ProductItemPrice = styled.div`
   ${GlobalProductItemPrice}
 `;
-export const ProductItemButton = styled.div`
+export const ProductItemButton = styled.div<any>`
   ${GlobalProductItemButton};
   background-image: linear-gradient(
     to right,

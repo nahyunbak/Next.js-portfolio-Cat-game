@@ -11,7 +11,7 @@ export const HeaderWrapper = styled.div`
   ${CenterCenterStyle};
 `;
 
-export const HeaderArea = styled.div<Number>`
+export const HeaderArea = styled.div<any>`
   width: 1100px;
   font-weight: 900;
   font-size: 7rem;
