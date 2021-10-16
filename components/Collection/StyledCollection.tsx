@@ -18,6 +18,7 @@ export const CollectionWrapper = styled.div`
 
 export const CollectionArea = styled.div`
   ${GlobalProductArea}
+  border-bottom: brown 30px solid;
 `;
 
 export const CollectionLink = styled.a`

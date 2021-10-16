@@ -11,7 +11,7 @@ export const HeaderWrapper = styled.div`
   ${CenterCenterStyle};
 `;
 
-export const HeaderArea = styled.div`
+export const HeaderArea = styled.div<Number>`
   width: 1100px;
   font-weight: 900;
   font-size: 7rem;
@@ -20,6 +20,44 @@ export const HeaderArea = styled.div`
   ${CenterCenterStyle};
   ${HeaderTitleStyle1}
   border-radius: 10px;
+  background-color: ${function (props: any) {
+    if (props.currentNum === 0) {
+      return "black";
+    } else if (props.currentNum === 1) {
+      return "red";
+    } else if (props.currentNum === 2) {
+      return "blue";
+    } else if (props.currentNum === 3) {
+      return "green";
+    } else if (props.currentNum === 4) {
+      return "purple";
+    } else if (props.currentNum === 5) {
+      return "orange";
+    } else if (props.currentNum === 6) {
+      return "yellow";
+    } else if (props.currentNum === 7) {
+      return "navy";
+    }
+  }};
+  color: ${function (props: any) {
+    if (props.currentNum === 0) {
+      return "white";
+    } else if (props.currentNum === 1) {
+      return "black";
+    } else if (props.currentNum === 2) {
+      return "orange";
+    } else if (props.currentNum === 3) {
+      return "red";
+    } else if (props.currentNum === 4) {
+      return "pink";
+    } else if (props.currentNum === 5) {
+      return "navy";
+    } else if (props.currentNum === 6) {
+      return "purple";
+    } else if (props.currentNum === 7) {
+      return "yellow";
+    }
+  }};
 
   @media screen and (max-width: 1300px) {
     width: 90vw;

@@ -165,11 +165,6 @@ export const purchasedProductState = atom({
   default: [],
 });
 
-export const purchasedListState = atom({
-  key: "purchasedProductListState",
-  default: [],
-});
-
 export const countState = atom({
   key: "countState",
   default: {},
@@ -178,4 +173,20 @@ export const countState = atom({
 export const moneyState = atom({
   key: "moneyState",
   default: 1000000000,
+});
+
+export const titleLanState = [
+  "화장품으로 고양이를 꼬셔보았습니다",
+  "Let's hook a cat with cosmetics",
+  "用化妆品抓猫吧",
+  "Attrapons le chat avec des cosmétiques",
+  "มาจับแมวด้วยเครื่องสำอางกันเถอะ",
+  "Lassen Sie uns Katze mit Kosmetika fangen.",
+  "Давайте поймаем кошку с косметикой",
+  "Hãy bắt mèo bằng mỹ phẩm",
+];
+
+export const titleState = atom({
+  key: "titleState",
+  default: 0,
 });

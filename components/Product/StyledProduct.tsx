@@ -17,6 +17,7 @@ export const ProductWrapper = styled.div`
 `;
 
 export const ProductArea = styled.div`
+  margin-top: 100px;
   ${GlobalProductArea}
 `;
 
