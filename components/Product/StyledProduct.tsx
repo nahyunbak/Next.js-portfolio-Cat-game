@@ -1,63 +1,46 @@
 import styled, { css } from "styled-components";
-import { CenterCenterStyle, verticalCenterStyle } from "../GlobalStyle";
-import Image from "next/image";
+import {
+  CenterCenterStyle,
+  GlobalProductArea,
+  GlobalProductItemButton,
+  GlobalProductItemImg,
+  GlobalProductItemName,
+  GlobalProductItemPrice,
+  GlobalProductItemWrapper,
+  GlobalProductLink,
+  GlobalProductWrapper,
+  verticalCenterStyle,
+} from "../GlobalStyle";
 
-const HeaderTitleStyle1 = css`
-  background: black;
-  color: white;
-`;
 export const ProductWrapper = styled.div`
-  width: 100vw;
-
-  ${CenterCenterStyle};
+  ${GlobalProductWrapper}
 `;
 
 export const ProductArea = styled.div`
-  display: grid;
-  width: 1250px;
-  grid-template-columns: repeat(auto-fill, 200px);
-  grid-auto-rows: minmax(250px, 300px);
-  padding-bottom: 50px;
-  grid-gap: 10px;
+  ${GlobalProductArea}
 `;
 
 export const ProductLink = styled.a`
-  text-decoration: none; /* no underline */
+  ${GlobalProductLink}
 `;
 export const ProductItemWrapper = styled.div`
-  ${verticalCenterStyle}
-
-  padding: 10px;
+  ${GlobalProductItemWrapper}
 `;
 export const ProductItemImg = styled.img`
-  width: 100px;
-  padding: 15px;
-  border-radius: 20px;
-  background-color: white;
-
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  ${GlobalProductItemImg}
 `;
 
 export const ProductItemDetail = styled.div`
   ${verticalCenterStyle}
 `;
 export const ProductItemName = styled.div`
-  color: black;
-  font-size: 1rem;
-  font-weight: 700;
-  width: 100px;
-  height: 30px;
-  ${CenterCenterStyle}
+  ${GlobalProductItemName}
 `;
 export const ProductItemPrice = styled.div`
-  color: black;
-  font-size: 1.4rem;
-  font-weight: 700;
+  ${GlobalProductItemPrice}
 `;
 export const ProductItemButton = styled.div`
-  width: 90px;
-  height: 35px;
-  ${CenterCenterStyle};
+  ${GlobalProductItemButton};
   background-image: linear-gradient(
     to right,
     #ff8177 0%,
@@ -67,10 +50,7 @@ export const ProductItemButton = styled.div`
     #cf556c 78%,
     #b12a5b 100%
   );
-  color: white;
-  font-weight: 900;
-  border-radius: 10px;
-  cursor: pointer;
+  color: black;
 `;
 
 /**

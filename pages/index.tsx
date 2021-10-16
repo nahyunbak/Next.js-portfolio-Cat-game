@@ -10,6 +10,8 @@ import { lanState, productState } from "../recoilAtom/language";
 import Product from "../components/Product";
 import { Axios } from "axios";
 import { GetStaticProps } from "next";
+import Status from "../components/Status";
+import Collection from "../components/Collection";
 
 export default function Home({ list }) {
   useEffect(() => {
@@ -24,6 +26,8 @@ export default function Home({ list }) {
 
       <RecoilRoot>
         <Header />
+        <Status />
+        <Collection />
         <Product list={list} />
       </RecoilRoot>
     </>

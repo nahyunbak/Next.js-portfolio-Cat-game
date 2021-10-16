@@ -12,7 +12,11 @@ import {
 import Axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { productState, purchasedProductState } from "../../recoilAtom/language";
+import {
+  moneyState,
+  productState,
+  purchasedProductState,
+} from "../../recoilAtom/language";
 
 const Product = ({ list }) => {
   //리코일에 저장된 list값은 죄다 삭제
@@ -20,19 +24,45 @@ const Product = ({ list }) => {
   const [purchasedProducts, setPurchasedProducts] = useRecoilState(
     purchasedProductState
   );
-  useEffect(() => setProducts(list), [setProducts, list]);
+  const [money, setMoney] = useRecoilState(moneyState);
 
-  const purchaseProduct = (e, item: Object) => {
-    console.log(item.id, e.target.getAttribute("name"));
+  useEffect(() => {
+    const savedLeftdValue = localStorage.getItem("left");
+    const savedPurchasedValue = localStorage.getItem("purchased");
+    const savedMoney = localStorage.getItem("money");
+
+    if (savedLeftdValue) {
+      setProducts(JSON.parse(savedLeftdValue));
+    } else {
+      setProducts(list);
+    }
+    if (savedPurchasedValue) {
+      setPurchasedProducts(JSON.parse(savedPurchasedValue));
+    }
+    if (savedMoney) {
+      setMoney(JSON.parse(savedMoney));
+    }
+  }, [setProducts, setPurchasedProducts]);
+
+  const purchaseProduct = (e, item: any) => {
     setProducts((oldState: any) =>
       oldState.filter(
         (item) => item.id !== parseInt(e.target.getAttribute("name"))
       )
     );
     setPurchasedProducts((oldState: any) => [...oldState, item]);
+    setMoney(
+      (oldState: any) => Math.round((oldState - Number(item.price)) * 100) / 100
+    );
+
+    console.log(products);
+    console.log(money);
+
+    localStorage.setItem("purchased", JSON.stringify(purchasedProducts));
+    localStorage.setItem("left", JSON.stringify(products));
+    localStorage.setItem("money", JSON.stringify(money));
   };
 
-  console.log(products, purchasedProducts);
   return (
     <>
       <ProductWrapper>

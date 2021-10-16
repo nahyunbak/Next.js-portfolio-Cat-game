@@ -169,3 +169,13 @@ export const purchasedListState = atom({
   key: "purchasedProductListState",
   default: [],
 });
+
+export const countState = atom({
+  key: "countState",
+  default: {},
+});
+
+export const moneyState = atom({
+  key: "moneyState",
+  default: 1000000000,
+});
