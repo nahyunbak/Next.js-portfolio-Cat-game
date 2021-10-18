@@ -41,6 +41,20 @@ const Collection = () => {
   }, [setProducts, setPurchasedProducts]);
 
   const refundProduct = (e, item: any) => {
+    localStorage.setItem(
+      "purchased",
+      JSON.stringify(
+        purchasedProducts.filter(
+          (x) => x.id !== parseInt(e.target.getAttribute("name"))
+        )
+      )
+    );
+    localStorage.setItem("left", JSON.stringify([...products, item]));
+    localStorage.setItem(
+      "money",
+      JSON.stringify(Math.round((money + Number(item.price)) * 100) / 100)
+    );
+
     setPurchasedProducts((oldState: any) =>
       oldState.filter(
         (item) => item.id !== parseInt(e.target.getAttribute("name"))
@@ -50,10 +64,6 @@ const Collection = () => {
     setMoney(
       (oldState: any) => Math.round((oldState + Number(item.price)) * 100) / 100
     );
-
-    localStorage.setItem("purchased", JSON.stringify(purchasedProducts));
-    localStorage.setItem("left", JSON.stringify(products));
-    localStorage.setItem("money", JSON.stringify(money));
   };
 
   return (

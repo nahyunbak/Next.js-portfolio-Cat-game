@@ -43,8 +43,21 @@ const Product = ({ list }) => {
       setMoney(JSON.parse(savedMoney));
     }
   }, [setProducts, setPurchasedProducts]);
-
   const purchaseProduct = (e, item: any) => {
+    localStorage.setItem(
+      "purchased",
+      JSON.stringify([...purchasedProducts, item])
+    );
+    localStorage.setItem(
+      "left",
+      JSON.stringify(
+        products.filter((x) => x.id !== parseInt(e.target.getAttribute("name")))
+      )
+    );
+    localStorage.setItem(
+      "money",
+      JSON.stringify(Math.round((money - Number(item.price)) * 100) / 100)
+    );
     setProducts((oldState: any) =>
       oldState.filter(
         (item) => item.id !== parseInt(e.target.getAttribute("name"))
@@ -54,13 +67,6 @@ const Product = ({ list }) => {
     setMoney(
       (oldState: any) => Math.round((oldState - Number(item.price)) * 100) / 100
     );
-
-    console.log(products);
-    console.log(money);
-
-    localStorage.setItem("purchased", JSON.stringify(purchasedProducts));
-    localStorage.setItem("left", JSON.stringify(products));
-    localStorage.setItem("money", JSON.stringify(money));
   };
 
   return (
