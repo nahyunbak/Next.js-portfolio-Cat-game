@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import {
+  catConditionStandard,
   catConditionState,
+  catModalState,
   moneyState,
   productState,
   purchasedProductState,
@@ -28,6 +30,7 @@ const Collection = () => {
 
   //고양이 출현조건과 기준 상태값
   const [catCondition, setCatCondition] = useRecoilState(catConditionState);
+  const [catModalInfo, setCatModalInfo] = useRecoilState(catModalState);
 
   useEffect(() => {
     const savedLeftdValue = localStorage.getItem("left");
@@ -70,7 +73,13 @@ const Collection = () => {
     setMoney(
       (oldState: any) => Math.round((oldState + Number(item.price)) * 100) / 100
     );
-    AddCatCondition("scroogeCat", catCondition, setCatCondition);
+    AddCatCondition(
+      "scroogeCat",
+      catCondition,
+      setCatCondition,
+      catConditionStandard,
+      setCatModalInfo
+    );
   };
 
   return (

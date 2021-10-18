@@ -13,7 +13,9 @@ import Axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import {
+  catConditionStandard,
   catConditionState,
+  catModalState,
   moneyState,
   productState,
   purchasedProductState,
@@ -30,6 +32,7 @@ const Product = ({ list }) => {
 
   //고양이 출현조건과 기준 상태값
   const [catCondition, setCatCondition] = useRecoilState(catConditionState);
+  const [catModalInfo, setCatModalInfo] = useRecoilState(catModalState);
 
   useEffect(() => {
     const savedLeftdValue = localStorage.getItem("left");
@@ -78,7 +81,13 @@ const Product = ({ list }) => {
         Math.round((oldState - Number(item.price)) * 100) / 100
     );
 
-    AddCatCondition("shopperCat", catCondition, setCatCondition);
+    AddCatCondition(
+      "shopperCat",
+      catCondition,
+      setCatCondition,
+      catConditionStandard,
+      setCatModalInfo
+    );
   };
   return (
     <>

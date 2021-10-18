@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { catConditionState } from "../../recoilAtom/language";
+import { catConditionState, catModalState } from "../../recoilAtom/language";
 
 export const useEffectCatModule = () => {
   const [catCondition, setCatCondition] = useRecoilState(catConditionState);
@@ -9,9 +9,21 @@ export const useEffectCatModule = () => {
   }
 };
 
-export const AddCatCondition = (catName, catCondition, setCatCondition) => {
+export const AddCatCondition = (
+  catName,
+  catCondition,
+  setCatCondition,
+  catConditionStandard,
+  setCatModalInfo
+) => {
   const temp = catCondition[catName];
-  console.log(catName);
+  if (catCondition === catConditionStandard[catName]) {
+    setCatModalInfo({ catType: catName, catDisplay: true });
+  } else {
+    setCatModalInfo({ catType: catName, catDisplay: false });
+  }
+  console.log(catModalState, catConditionStandard);
+
   localStorage.setItem(
     "catCondition",
     JSON.stringify({

@@ -77,31 +77,45 @@ export const catConditionState = atom({
 });
 
 //고양이 출현조건 기준을 관리함
-export const catConditionStandardState = atom({
-  key: "catConditionStandardState",
-  default: {
-    npcCat: 0,
-    shopperCat: 20,
-    scroogeCat: 15,
-    houseCat: 30,
-    stalkerCat: 20,
-    richCat: 14,
-    titleCat: 10,
-    ghostCat: 16,
-    woodCat: 39,
-    bookCat: 26,
-    sunCat: 28,
-    treeCat: 40,
-    dogCat: 30,
-    loverCat: 100,
-    dancerCat: 100,
-  },
-});
+export const catConditionStandard = {
+  npcCat: 0,
+  shopperCat: 20,
+  scroogeCat: 15,
+  houseCat: 30,
+  stalkerCat: 20,
+  richCat: 14,
+  titleCat: 10,
+  ghostCat: 16,
+  woodCat: 39,
+  bookCat: 26,
+  sunCat: 28,
+  treeCat: 40,
+  dogCat: 30,
+  loverCat: 100,
+  dancerCat: 100,
+};
 
 // 게임 리셋 컴포넌트도 추가하기
 
 // 고양이 콜렉션을 관리함
 export const catCollectionState = atom({
   key: "catCollectionState",
-  default: ["npcCat"],
+  default: {
+    collectedCat: ["npcCat"],
+    npcCat: {
+      title: "NPC 고양이",
+      contents:
+        "본인이 NPC라는 사실을 전혀 모르는 눈치의 고양이. 갑자기 등장한 나를 수상쩍게 쳐다보고 있다",
+      img: "/npcCat.png",
+    },
+  },
+});
+
+// 고양이 콜렉션을 관리함
+export const catModalState = atom({
+  key: "catCollectionState",
+  default: {
+    catType: "npcCat",
+    catDisplay: false,
+  },
 });
