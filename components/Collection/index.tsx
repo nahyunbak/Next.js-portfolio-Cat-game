@@ -6,6 +6,7 @@ import {
   productState,
   purchasedProductState,
 } from "../../recoilAtom/language";
+import { AddCatCondition, useEffectCatModule } from "../ComponentModules";
 import {
   CollectionArea,
   CollectionItemButton,
@@ -32,7 +33,6 @@ const Collection = () => {
     const savedLeftdValue = localStorage.getItem("left");
     const savedPurchasedValue = localStorage.getItem("purchased");
     const savedMoney = localStorage.getItem("money");
-    const savedCatCondition = localStorage.getItem("catCondition");
 
     if (savedLeftdValue) {
       setProducts(JSON.parse(savedLeftdValue));
@@ -43,9 +43,7 @@ const Collection = () => {
     if (savedMoney) {
       setMoney(JSON.parse(savedMoney));
     }
-    if (savedCatCondition) {
-      setCatCondition(JSON.parse(savedCatCondition));
-    }
+    useEffectCatModule;
   }, [setProducts, setPurchasedProducts, setMoney, setCatCondition]);
 
   const refundProduct = (e, item: any) => {
@@ -63,14 +61,6 @@ const Collection = () => {
       JSON.stringify(Math.round((money + Number(item.price)) * 100) / 100)
     );
 
-    localStorage.setItem(
-      "catCondition",
-      JSON.stringify({
-        ...catCondition,
-        scroogeCat: catCondition.scroogeCat + 1,
-      })
-    );
-
     setPurchasedProducts((oldState: any) =>
       oldState.filter(
         (item) => item.id !== parseInt(e.target.getAttribute("name"))
@@ -80,10 +70,7 @@ const Collection = () => {
     setMoney(
       (oldState: any) => Math.round((oldState + Number(item.price)) * 100) / 100
     );
-    setCatCondition({
-      ...catCondition,
-      scroogeCat: catCondition.scroogeCat + 1,
-    });
+    AddCatCondition("scroogeCat", catCondition, setCatCondition);
   };
 
   return (

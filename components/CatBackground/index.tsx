@@ -12,6 +12,12 @@ import {
   CatBackgroundSun,
   CatBackgroundTree,
   CatBackgroundWrapper,
+  NewCatModalArea,
+  NewCatModalCloseButton,
+  NewCatModalContents,
+  NewCatModalImg,
+  NewCatModalTitle,
+  NewCatModalWrapper,
 } from "./StyledCatBackground";
 
 // 배경은, 클릭할 때마다 무언가 효과가 있다.
@@ -32,10 +38,36 @@ const CatBackground = () => {
             }
             src="/house.png"
           />
-          <CatBackgroundTree src="/tree.png" />
-          <CatBackgroundDog src="/dog.png" />
-          <CatBackgroundSun src="/sun.png" />
+          <CatBackgroundTree
+            onClick={() =>
+              AddCatCondition("treeCat", catCondition, setCatCondition)
+            }
+            src="/tree.png"
+          />
+          <CatBackgroundDog
+            onClick={() =>
+              AddCatCondition("dogCat", catCondition, setCatCondition)
+            }
+            src="/dog.png"
+          />
+          <CatBackgroundSun
+            onClick={() =>
+              AddCatCondition("sunCat", catCondition, setCatCondition)
+            }
+            src="/sun.png"
+          />
         </CatBackgroundArea>
+        <NewCatModalWrapper>
+          <NewCatModalArea>
+            <NewCatModalTitle>NPC고양이</NewCatModalTitle>
+            <NewCatModalImg src="/npcCat.png" />
+            <NewCatModalContents>
+              본인이 NPC라는 사실을 전혀 모르는 눈치의 고양이. 갑자기 등장한
+              나를 수상하게 여기는 듯하다.
+            </NewCatModalContents>
+            <NewCatModalCloseButton>닫기</NewCatModalCloseButton>
+          </NewCatModalArea>
+        </NewCatModalWrapper>
       </CatBackgroundWrapper>
     </>
   );
@@ -45,36 +77,26 @@ export default CatBackground;
 
 /**
  * 
- * 
- * export const CatBackgroundArea = styled.div`
-  width: 1300px;
-  height: 1300px;
-  position: relative;
-`;
-
-export const CatImg = styled.img`
-  width: 200px;
-  position: absolute;
-`;
-
-export const CatBackgroundHouse = styled.img`
-  width: 600px;
-  position: absolute;
-`;
-
-export const CatBackgroundTree = styled.img`
+ * export const NewCatModalWrapper = styled.div`
+  ${verticalCenterStyle};
   width: 500px;
-  position: absolute;
+  height: 600px;
+  background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
 `;
 
-export const CatBackgroundDog = styled.img`
-  width: 300px;
-  position: absolute;
+export const NewCatModalTitle = styled.div`
+  font-size: 2rem;
+  color: black;
+  background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
 `;
 
-export const CatBackgroundSun = styled.img`
-  width: 200px;
-  position: absolute;
+export const NewCatModalImg = styled.img`
+  width: 400px;
+`;
+
+export const NewCatModalContents = styled.div`
+  font-size: 1.5rem;
+  color: black;
 `;
 
  */

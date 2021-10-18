@@ -2,6 +2,16 @@ import styled, { css } from "styled-components";
 
 import LinkN from "next/link";
 
+// 글래스스타일
+export const glassStyle = css`
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+`;
+
 //정중앙
 export const CenterCenterStyle = css`
   display: flex;

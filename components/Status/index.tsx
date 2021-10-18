@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { catConditionState, moneyState } from "../../recoilAtom/language";
+import { AddCatCondition, useEffectCatModule } from "../ComponentModules";
 import { StatusMoney, StatusWrapper } from "./StyledProduct";
 
 const Status = () => {
@@ -8,36 +9,15 @@ const Status = () => {
   //고양이 출현조건과 기준 상태값
   const [catCondition, setCatCondition] = useRecoilState(catConditionState);
   useEffect(() => {
-    const savedCatCondition = localStorage.getItem("catCondition");
-
-    if (savedCatCondition) {
-      setCatCondition(JSON.parse(savedCatCondition));
-    }
+    useEffectCatModule;
   }, [setCatCondition]);
-
-  const createMoneyCatCondition = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    localStorage.setItem(
-      "catCondition",
-      JSON.stringify({
-        ...catCondition,
-        richCat: catCondition.richCat + 1,
-      })
-    );
-
-    setCatCondition({
-      ...catCondition,
-      richCat: catCondition.richCat + 1,
-    });
-  };
 
   return (
     <>
       <StatusWrapper>
         <StatusMoney
-          onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-            createMoneyCatCondition(e)
+          onClick={() =>
+            AddCatCondition("richCat", catCondition, setCatCondition)
           }
         >
           ${money}

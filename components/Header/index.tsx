@@ -8,6 +8,7 @@ import {
   titleLanState,
   titleState,
 } from "../../recoilAtom/language";
+import { AddCatCondition, useEffectCatModule } from "../ComponentModules";
 
 const Header = () => {
   const [currentTitleLan, setCurrentTitleLan] = useRecoilState(titleState);
@@ -21,6 +22,7 @@ const Header = () => {
     if (savedCurrentTitleLan) {
       setCurrentTitleLan(JSON.parse(savedCurrentTitleLan));
     }
+    useEffectCatModule;
   }, [setCurrentTitleLan]);
 
   const toggleTitle = () => {
@@ -32,18 +34,7 @@ const Header = () => {
 
     localStorage.setItem("titleLan", JSON.stringify(currentTitleLan));
     //제목학원 고양이 출현 + 로컬스토리지 저장
-    localStorage.setItem(
-      "catCondition",
-      JSON.stringify({
-        ...catCondition,
-        titleCatt: catCondition.titleCat + 1,
-      })
-    );
-
-    setCatCondition({
-      ...catCondition,
-      titleCat: catCondition.titleCat + 1,
-    });
+    AddCatCondition("titleCat", catCondition, setCatCondition);
   };
   return (
     <>

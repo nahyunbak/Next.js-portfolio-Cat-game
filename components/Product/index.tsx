@@ -18,6 +18,7 @@ import {
   productState,
   purchasedProductState,
 } from "../../recoilAtom/language";
+import { AddCatCondition, useEffectCatModule } from "../ComponentModules";
 
 const Product = ({ list }) => {
   //로컬스토리지 저장용 상태값
@@ -34,7 +35,6 @@ const Product = ({ list }) => {
     const savedLeftdValue = localStorage.getItem("left");
     const savedPurchasedValue = localStorage.getItem("purchased");
     const savedMoney = localStorage.getItem("money");
-    const savedCatCondition = localStorage.getItem("catCondition");
 
     if (savedLeftdValue) {
       setProducts(JSON.parse(savedLeftdValue));
@@ -47,9 +47,7 @@ const Product = ({ list }) => {
     if (savedMoney) {
       setMoney(JSON.parse(savedMoney));
     }
-    if (savedCatCondition) {
-      setCatCondition(JSON.parse(savedCatCondition));
-    }
+    useEffectCatModule;
   }, [setProducts, setPurchasedProducts, setMoney, setCatCondition]);
 
   const purchaseProduct = (e, item: any) => {
@@ -68,13 +66,7 @@ const Product = ({ list }) => {
       "money",
       JSON.stringify(Math.round((money - Number(item.price)) * 100) / 100)
     );
-    localStorage.setItem(
-      "catCondition",
-      JSON.stringify({
-        ...catCondition,
-        shopperCat: catCondition.shopperCat + 1,
-      })
-    );
+
     setProducts((oldState: any) =>
       oldState.filter(
         (item) => item.id !== parseInt(e.target.getAttribute("name"))
@@ -86,10 +78,7 @@ const Product = ({ list }) => {
         Math.round((oldState - Number(item.price)) * 100) / 100
     );
 
-    setCatCondition({
-      ...catCondition,
-      shopperCat: catCondition.shopperCat + 1,
-    });
+    AddCatCondition("shopperCat", catCondition, setCatCondition);
   };
   return (
     <>
