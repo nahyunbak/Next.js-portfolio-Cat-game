@@ -6,7 +6,7 @@ import { RecoilRoot, useRecoilState, useRecoilValue } from "recoil";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { lanState, productState } from "../recoilAtom/language";
+import { productState } from "../recoilAtom/language";
 import Product from "../components/Product";
 import { Axios } from "axios";
 import { GetStaticProps } from "next";

@@ -3,6 +3,7 @@ import Axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import {
+  catConditionState,
   productState,
   titleLanState,
   titleState,
@@ -11,6 +12,9 @@ import {
 const Header = () => {
   const [currentTitleLan, setCurrentTitleLan] = useRecoilState(titleState);
   const maxNum = titleLanState.length;
+
+  //고양이 출현조건과 기준 상태값
+  const [catCondition, setCatCondition] = useRecoilState(catConditionState);
 
   useEffect(() => {
     const savedCurrentTitleLan = localStorage.getItem("titleLan");
@@ -27,6 +31,19 @@ const Header = () => {
     }
 
     localStorage.setItem("titleLan", JSON.stringify(currentTitleLan));
+    //제목학원 고양이 출현 + 로컬스토리지 저장
+    localStorage.setItem(
+      "catCondition",
+      JSON.stringify({
+        ...catCondition,
+        titleCatt: catCondition.titleCat + 1,
+      })
+    );
+
+    setCatCondition({
+      ...catCondition,
+      titleCat: catCondition.titleCat + 1,
+    });
   };
   return (
     <>

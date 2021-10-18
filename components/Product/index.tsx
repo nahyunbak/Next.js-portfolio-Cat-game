@@ -29,7 +29,6 @@ const Product = ({ list }) => {
 
   //고양이 출현조건과 기준 상태값
   const [catCondition, setCatCondition] = useRecoilState(catConditionState);
-  const shopperCatStandard = useRecoilValue(catConditionState);
 
   useEffect(() => {
     const savedLeftdValue = localStorage.getItem("left");
@@ -54,6 +53,7 @@ const Product = ({ list }) => {
   }, [setProducts, setPurchasedProducts, setMoney, setCatCondition]);
 
   const purchaseProduct = (e, item: any) => {
+    // localstorage 저장시 state 바꾸고, recoil state도 바꾸기
     localStorage.setItem(
       "purchased",
       JSON.stringify([...purchasedProducts, item])
@@ -68,7 +68,13 @@ const Product = ({ list }) => {
       "money",
       JSON.stringify(Math.round((money - Number(item.price)) * 100) / 100)
     );
-    localStorage.setItem("catCondition", JSON.stringify(catCondition));
+    localStorage.setItem(
+      "catCondition",
+      JSON.stringify({
+        ...catCondition,
+        shopperCat: catCondition.shopperCat + 1,
+      })
+    );
     setProducts((oldState: any) =>
       oldState.filter(
         (item) => item.id !== parseInt(e.target.getAttribute("name"))
@@ -105,7 +111,7 @@ const Product = ({ list }) => {
                   <ProductItemButton
                     key={item.id}
                     name={item.id}
-                    onClick={(e) => purchaseProduct(e, item)}
+                    onClick={(e: any) => purchaseProduct(e, item)}
                   >
                     구매
                   </ProductItemButton>

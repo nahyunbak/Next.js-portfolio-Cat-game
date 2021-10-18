@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import {
+  catConditionState,
   moneyState,
   productState,
   purchasedProductState,
@@ -24,10 +25,14 @@ const Collection = () => {
   );
   const [money, setMoney] = useRecoilState(moneyState);
 
+  //고양이 출현조건과 기준 상태값
+  const [catCondition, setCatCondition] = useRecoilState(catConditionState);
+
   useEffect(() => {
     const savedLeftdValue = localStorage.getItem("left");
     const savedPurchasedValue = localStorage.getItem("purchased");
     const savedMoney = localStorage.getItem("money");
+    const savedCatCondition = localStorage.getItem("catCondition");
 
     if (savedLeftdValue) {
       setProducts(JSON.parse(savedLeftdValue));
@@ -38,7 +43,10 @@ const Collection = () => {
     if (savedMoney) {
       setMoney(JSON.parse(savedMoney));
     }
-  }, [setProducts, setPurchasedProducts]);
+    if (savedCatCondition) {
+      setCatCondition(JSON.parse(savedCatCondition));
+    }
+  }, [setProducts, setPurchasedProducts, setMoney, setCatCondition]);
 
   const refundProduct = (e, item: any) => {
     localStorage.setItem(
@@ -55,6 +63,14 @@ const Collection = () => {
       JSON.stringify(Math.round((money + Number(item.price)) * 100) / 100)
     );
 
+    localStorage.setItem(
+      "catCondition",
+      JSON.stringify({
+        ...catCondition,
+        scroogeCat: catCondition.scroogeCat + 1,
+      })
+    );
+
     setPurchasedProducts((oldState: any) =>
       oldState.filter(
         (item) => item.id !== parseInt(e.target.getAttribute("name"))
@@ -64,6 +80,10 @@ const Collection = () => {
     setMoney(
       (oldState: any) => Math.round((oldState + Number(item.price)) * 100) / 100
     );
+    setCatCondition({
+      ...catCondition,
+      scroogeCat: catCondition.scroogeCat + 1,
+    });
   };
 
   return (
