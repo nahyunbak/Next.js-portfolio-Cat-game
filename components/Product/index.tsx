@@ -11,25 +11,31 @@ import {
 } from "./StyledProduct";
 import Axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import {
+  catConditionState,
   moneyState,
   productState,
   purchasedProductState,
 } from "../../recoilAtom/language";
 
 const Product = ({ list }) => {
-  //리코일에 저장된 list값은 죄다 삭제
+  //로컬스토리지 저장용 상태값
   const [products, setProducts] = useRecoilState(productState);
   const [purchasedProducts, setPurchasedProducts] = useRecoilState(
     purchasedProductState
   );
   const [money, setMoney] = useRecoilState(moneyState);
 
+  //고양이 출현조건과 기준 상태값
+  const [catCondition, setCatCondition] = useRecoilState(catConditionState);
+  const shopperCatStandard = useRecoilValue(catConditionState);
+
   useEffect(() => {
     const savedLeftdValue = localStorage.getItem("left");
     const savedPurchasedValue = localStorage.getItem("purchased");
     const savedMoney = localStorage.getItem("money");
+    const savedCatCondition = localStorage.getItem("catCondition");
 
     if (savedLeftdValue) {
       setProducts(JSON.parse(savedLeftdValue));
@@ -42,7 +48,11 @@ const Product = ({ list }) => {
     if (savedMoney) {
       setMoney(JSON.parse(savedMoney));
     }
-  }, [setProducts, setPurchasedProducts]);
+    if (savedCatCondition) {
+      setCatCondition(JSON.parse(savedCatCondition));
+    }
+  }, [setProducts, setPurchasedProducts, setMoney, setCatCondition]);
+
   const purchaseProduct = (e, item: any) => {
     localStorage.setItem(
       "purchased",
@@ -58,6 +68,7 @@ const Product = ({ list }) => {
       "money",
       JSON.stringify(Math.round((money - Number(item.price)) * 100) / 100)
     );
+    localStorage.setItem("catCondition", JSON.stringify(catCondition));
     setProducts((oldState: any) =>
       oldState.filter(
         (item) => item.id !== parseInt(e.target.getAttribute("name"))
@@ -65,10 +76,15 @@ const Product = ({ list }) => {
     );
     setPurchasedProducts((oldState: any) => [...oldState, item]);
     setMoney(
-      (oldState: any) => Math.round((oldState - Number(item.price)) * 100) / 100
+      (oldState: number) =>
+        Math.round((oldState - Number(item.price)) * 100) / 100
     );
-  };
 
+    setCatCondition({
+      ...catCondition,
+      shopperCat: catCondition.shopperCat + 1,
+    });
+  };
   return (
     <>
       <ProductWrapper>
