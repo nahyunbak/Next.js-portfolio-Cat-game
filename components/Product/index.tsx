@@ -111,7 +111,7 @@ const Product = ({ list }) => {
                   <ProductItemButton
                     key={item.id}
                     name={item.id}
-                    onClick={(e: any) => purchaseProduct(e, item)}
+                    onClick={(e) => purchaseProduct(e, item)}
                   >
                     구매
                   </ProductItemButton>

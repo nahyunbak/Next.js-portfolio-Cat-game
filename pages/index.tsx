@@ -12,6 +12,7 @@ import { Axios } from "axios";
 import { GetStaticProps } from "next";
 import Status from "../components/Status";
 import Collection from "../components/Collection";
+import CatBackground from "../components/CatBackground";
 
 export default function Home({ list }) {
   useEffect(() => {
@@ -24,12 +25,11 @@ export default function Home({ list }) {
         <title>안녕</title>
       </Head>
 
-      <RecoilRoot>
-        <Header />
-        <Status />
-        <Collection />
-        <Product list={list} />
-      </RecoilRoot>
+      <Header />
+      <CatBackground />
+      <Status />
+      <Collection />
+      <Product list={list} />
     </>
   );
 }
