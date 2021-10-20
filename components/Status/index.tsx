@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import {
+  catCollectionState,
   catConditionDefaultState,
   catConditionStandard,
   catConditionState,
   catModalState,
+  collectedCatState,
   moneyState,
   purchasedProductState,
 } from "../../recoilAtom/language";
@@ -13,7 +15,24 @@ import {
   resetEverything,
   useEffectCatModule,
 } from "../ComponentModules";
-import { ResetButton, StatusMoney, StatusWrapper } from "./StyledProduct";
+
+import {
+  CatCollectionBook,
+  OldCatModalArea,
+  OldCatModalCloseButton,
+  OldCatModalContents,
+  OldCatModalImg,
+  OldCatModalLeftArrow,
+  OldCatModalPlace,
+  OldCatModalRightArrow,
+  OldCatModalTitle,
+  OldCatModalWrapper,
+  ResetButton,
+  StatusArea,
+  StatusDetail,
+  StatusMoney,
+  StatusWrapper,
+} from "./StyledProduct";
 
 const Status = () => {
   const [money, setMoney] = useRecoilState(moneyState);
@@ -23,6 +42,7 @@ const Status = () => {
   const [purchasedProduct, setPurchasedProduct] = useRecoilState(
     purchasedProductState
   );
+  const [collectedCat, setCollectedCat] = useRecoilState(collectedCatState);
 
   useEffect(() => {
     useEffectCatModule;
@@ -31,26 +51,57 @@ const Status = () => {
   return (
     <>
       <StatusWrapper>
-        <StatusMoney
-          onClick={() =>
-            AddCatCondition(
-              "richCat",
-              catCondition,
-              setCatCondition,
-              catConditionStandard,
-              setCatModalInfo
-            )
-          }
-        >
-          ${money}
-        </StatusMoney>
-        <ResetButton
-          onClick={() =>
-            resetEverything(setCatCondition, setPurchasedProduct, setMoney)
-          }
-        >
-          안녕
-        </ResetButton>
+        <StatusArea>
+          <StatusMoney
+            onClick={() =>
+              AddCatCondition(
+                "richCat",
+                catCondition,
+                setCatCondition,
+                catConditionStandard,
+                setCatModalInfo,
+                setCollectedCat
+              )
+            }
+          >
+            ${money}
+          </StatusMoney>
+          <StatusDetail>
+            <CatCollectionBook src="/catTower.png"></CatCollectionBook>
+            <ResetButton
+              onClick={() =>
+                resetEverything(setCatCondition, setPurchasedProduct, setMoney)
+              }
+            >
+              리셋
+            </ResetButton>
+          </StatusDetail>
+        </StatusArea>
+        <OldCatModalWrapper>
+          <OldCatModalPlace>
+            <OldCatModalLeftArrow />
+            <OldCatModalArea>
+              <OldCatModalTitle>npcCat</OldCatModalTitle>
+              <OldCatModalImg src="/npcCat.png" />
+              <OldCatModalContents>안녕하시게</OldCatModalContents>
+              <OldCatModalCloseButton
+                onClick={() =>
+                  AddCatCondition(
+                    catModalInfo.catType,
+                    catCondition,
+                    setCatCondition,
+                    catConditionStandard,
+                    setCatModalInfo,
+                    setCollectedCat
+                  )
+                }
+              >
+                닫기
+              </OldCatModalCloseButton>
+            </OldCatModalArea>
+            <OldCatModalRightArrow />
+          </OldCatModalPlace>
+        </OldCatModalWrapper>
       </StatusWrapper>
     </>
   );

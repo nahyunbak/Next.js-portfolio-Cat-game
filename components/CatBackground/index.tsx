@@ -7,8 +7,10 @@ import {
   catConditionStandard,
   catConditionState,
   catModalState,
+  collectedCatState,
 } from "../../recoilAtom/language";
 import { AddCatCondition, useEffectCatModule } from "../ComponentModules";
+
 import {
   CatBackgroundArea,
   CatBackgroundDog,
@@ -17,12 +19,12 @@ import {
   CatBackgroundSun,
   CatBackgroundTree,
   CatBackgroundWrapper,
+  NewCatModalWrapper,
   NewCatModalArea,
   NewCatModalCloseButton,
   NewCatModalContents,
   NewCatModalImg,
   NewCatModalTitle,
-  NewCatModalWrapper,
 } from "./StyledCatBackground";
 
 // 배경은, 클릭할 때마다 무언가 효과가 있다.
@@ -30,12 +32,11 @@ const CatBackground = () => {
   //고양이 출현조건과 기준 상태값
   const [catCondition, setCatCondition] = useRecoilState(catConditionState);
   const [catModalInfo, setCatModalInfo] = useRecoilState(catModalState);
+  const [collectedCat, setCollectedCat] = useRecoilState(collectedCatState);
 
   useEffect(() => {
-    console.log(catModalInfo);
     useEffectCatModule;
-
-    return console.log(catModalInfo, catCondition);
+    console.log(collectedCat);
   }, [setCatCondition, catModalInfo]);
 
   return (
@@ -49,7 +50,8 @@ const CatBackground = () => {
                 catCondition,
                 setCatCondition,
                 catConditionStandard,
-                setCatModalInfo
+                setCatModalInfo,
+                setCollectedCat
               )
             }
             src="/house.png"
@@ -61,7 +63,8 @@ const CatBackground = () => {
                 catCondition,
                 setCatCondition,
                 catConditionStandard,
-                setCatModalInfo
+                setCatModalInfo,
+                setCollectedCat
               )
             }
             src="/tree.png"
@@ -73,7 +76,8 @@ const CatBackground = () => {
                 catCondition,
                 setCatCondition,
                 catConditionStandard,
-                setCatModalInfo
+                setCatModalInfo,
+                setCollectedCat
               )
             }
             src="/dog.png"
@@ -85,7 +89,8 @@ const CatBackground = () => {
                 catCondition,
                 setCatCondition,
                 catConditionStandard,
-                setCatModalInfo
+                setCatModalInfo,
+                setCollectedCat
               )
             }
             src="/sun.png"
@@ -109,7 +114,8 @@ const CatBackground = () => {
                   catCondition,
                   setCatCondition,
                   catConditionStandard,
-                  setCatModalInfo
+                  setCatModalInfo,
+                  setCollectedCat
                 )
               }
             >

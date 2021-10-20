@@ -30,12 +30,13 @@ export const AddCatCondition = (
   catCondition,
   setCatCondition,
   catConditionStandard,
-  setCatModalInfo
+  setCatModalInfo,
+  setCollectedCat
 ) => {
   const temp = catCondition[catName];
   if (catCondition[catName] === catConditionStandard[catName]) {
     setCatModalInfo({ catType: catName, catDisplay: true });
-    console.log(catCondition[catName], catConditionStandard[catName]);
+    setCollectedCat((oldState) => [...oldState, catName]);
   } else {
     setCatModalInfo({ catType: catName, catDisplay: false });
   }

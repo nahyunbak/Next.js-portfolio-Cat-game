@@ -6,6 +6,7 @@ import {
   catConditionStandard,
   catConditionState,
   catModalState,
+  collectedCatState,
   productState,
   titleLanState,
   titleState,
@@ -19,6 +20,7 @@ const Header = () => {
   //고양이 출현조건과 기준 상태값
   const [catCondition, setCatCondition] = useRecoilState(catConditionState);
   const [catModalInfo, setCatModalInfo] = useRecoilState(catModalState);
+  const [collectedCat, setCollectedCat] = useRecoilState(collectedCatState);
 
   useEffect(() => {
     const savedCurrentTitleLan = localStorage.getItem("titleLan");
@@ -42,7 +44,8 @@ const Header = () => {
       catCondition,
       setCatCondition,
       catConditionStandard,
-      setCatModalInfo
+      setCatModalInfo,
+      setCollectedCat
     );
   };
   return (

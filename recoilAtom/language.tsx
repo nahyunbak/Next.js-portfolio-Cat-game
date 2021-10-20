@@ -149,7 +149,7 @@ export const catCollectionState = {
   dogCat: {
     title: "개냥이",
     contents:
-      "주인만 보면 멍멍 짖는 고양이. 본인을 고양이가 아닌 개라고 생각하고 있다.",
+      "주인만 보면 멍멍 짖는 고양이. 존재 자체가 빛이라 수많은 팬을 몰고 다닌다(사랑해요, 개냥이!)",
     img: "/dogCat.png",
   },
   ghostCat: {
@@ -161,7 +161,7 @@ export const catCollectionState = {
   houseCat: {
     title: "집순이 고양이",
     contents:
-      "이불 밖은 위험하다고 철썩같이 믿는 고양이. 실제로 이불 밖으로 나가기를 몹시 꺼려한다.",
+      "이불 밖은 위험하다고 철썩같이 믿는 고양이. 스마트폰 대신 분홍색 공에 집착하고 있다.",
     img: "/houseCat.png",
   },
   richCat: {
@@ -195,16 +195,22 @@ export const catCollectionState = {
     img: "/titleCat.png",
   },
   treeCat: {
-    title: "나무 고양이",
+    title: "산신령 고양이",
     contents:
-      "나무를 좋아하는 고양이. 파릇파릇한 나무는 좋아하지만 올라가는 건 좀 귀찮은 모양이다.",
+      "츄르보다 나무를 좋아하는 고양이. 커다란 나무는 좋아하지만 올라가는 건 좀 귀찮은 모양이다.",
     img: "/treeCat.png",
   },
-  woodCat: {
+  resetCat: {
     title: "선넘는 고양이",
     contents:
-      "개발자가 임의로 만들어놓은 구분선에 올라탄 고양이. 이러라고 만든 구분선이 아닌데...",
+      "개발자가 임의로 만들어놓은 구분선에 올라탄 고양이. 좀처럼 떨어지지 않는다. (이러라고 만든 구분선이 아닌데...)",
     img: "/woodCat.png",
+  },
+  sunCat: {
+    title: "하품 고양이",
+    contents:
+      "해만 보면 하품을 하는 고양이. 하도 햇살을 쬐었더니 바람에 털색이 노랗게 바랬다.",
+    img: "/sunCat.png",
   },
 };
 
@@ -215,4 +221,9 @@ export const catModalState = atom({
     catType: "npcCat",
     catDisplay: false,
   },
+});
+
+export const collectedCatState = atom({
+  key: "collectedCatState",
+  default: [],
 });
