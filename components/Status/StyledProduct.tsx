@@ -68,7 +68,7 @@ export const OldCatModalWrapper = styled.div<any>`
   width: 100vw;
   height: 100vh;
   display: ${(props) => (props.catHistory ? "flex" : "none")};
-  margin-top: -1800px;
+  margin-top: -2500px;
 `;
 
 export const OldCatModalPlace = styled.div`

@@ -13,6 +13,7 @@ import { GetStaticProps } from "next";
 import Status from "../components/Status";
 import Collection from "../components/Collection";
 import CatBackground from "../components/CatBackground";
+import GameGuide from "../components/GameGuide";
 
 export default function Home({ list }) {
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function Home({ list }) {
       </Head>
 
       <Header />
+      <GameGuide />
       <CatBackground />
       <Status />
       <Collection />
