@@ -8,7 +8,6 @@ import {
 export const CatBackgroundWrapper = styled.div`
   width: 100vw;
   height: 1200px;
-
   ${CenterCenterStyle};
 `;
 
@@ -60,12 +59,14 @@ export const CatBackgroundFence = styled.img`
   bottom: 0;
 `;
 
-export const NewCatModalWrapper = styled.div`
+export const NewCatModalWrapper = styled.div<any>`
   ${verticalCenterStyle};
-  width: 100vw;
-  height: 100vh;
+  display: ${(props) => (props.catDisplay ? "flex" : "none")};
+  width: 100%;
+  height: 100%;
   position: fixed;
   margin-top: -1500px;
+  background-color: rgba(0, 0, 0, 0.3);
 `;
 
 export const NewCatModalArea = styled.div`
@@ -74,6 +75,7 @@ export const NewCatModalArea = styled.div`
   height: 560px;
   border-radius: 10px;
   background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
+  opacity: 1;
 `;
 export const NewCatModalTitle = styled.div`
   width: 300px;

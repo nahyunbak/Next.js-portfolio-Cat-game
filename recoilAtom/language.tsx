@@ -16,11 +16,18 @@ export const purchasedProductState = atom({
   default: [],
 });
 
+// 구매목록 리셋
+export const PurchaseDefaultState = [];
+
 export const moneyState = atom({
   key: "moneyState",
   default: 1000000000,
 });
 
+// 돈 리셋
+export const moneyDefaultState = 1000000000;
+
+// 타이틀 모음
 export const titleLanState = [
   "화장품으로 고양이를 꼬셔보았습니다",
   "Let's hook a cat with cosmetics",
@@ -36,6 +43,9 @@ export const titleState = atom({
   key: "titleState",
   default: 0,
 });
+
+// 타이틀 기본 상태
+export const titleDefaultState = 0;
 
 //고양이 이름 모음
 export const catsCollection = [
@@ -76,9 +86,28 @@ export const catConditionState = atom({
   },
 });
 
+//고양이 출현조건 리셋하기
+export const catConditionDefaultState = {
+  npcCat: 0,
+  shopperCat: 0,
+  scroogeCat: 0,
+  houseCat: 0,
+  stalkerCat: 0,
+  richCat: 0,
+  titleCat: 0,
+  ghostCat: 0,
+  woodCat: 0,
+  bookCat: 0,
+  sunCat: 0,
+  treeCat: 0,
+  dogCat: 0,
+  loverCat: 0,
+  dancerCat: 0,
+};
+
 //고양이 출현조건 기준을 관리함
 export const catConditionStandard = {
-  npcCat: 0,
+  npcCat: 1,
   shopperCat: 20,
   scroogeCat: 15,
   houseCat: 30,

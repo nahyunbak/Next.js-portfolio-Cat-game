@@ -16,3 +16,9 @@ export const StatusMoney = styled.div`
   background: #83c283;
   border-radius: 10px;
 `;
+
+export const ResetButton = styled.div`
+  background-color: black;
+  width: 100px;
+  height: 100px;
+`;

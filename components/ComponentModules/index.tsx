@@ -1,5 +1,11 @@
 import { useRecoilState } from "recoil";
-import { catConditionState, catModalState } from "../../recoilAtom/language";
+import {
+  catConditionDefaultState,
+  catConditionState,
+  catModalState,
+  moneyDefaultState,
+  PurchaseDefaultState,
+} from "../../recoilAtom/language";
 
 export const useEffectCatModule = () => {
   const [catCondition, setCatCondition] = useRecoilState(catConditionState);
@@ -9,6 +15,16 @@ export const useEffectCatModule = () => {
   }
 };
 
+export const resetEverything = (
+  setCatCondition,
+  setPurchasedProductState,
+  setMoneyState
+) => {
+  localStorage.clear();
+  setCatCondition(catConditionDefaultState);
+  setPurchasedProductState(PurchaseDefaultState);
+  setMoneyState(moneyDefaultState);
+};
 export const AddCatCondition = (
   catName,
   catCondition,
@@ -17,12 +33,12 @@ export const AddCatCondition = (
   setCatModalInfo
 ) => {
   const temp = catCondition[catName];
-  if (catCondition === catConditionStandard[catName]) {
+  if (catCondition[catName] === catConditionStandard[catName]) {
     setCatModalInfo({ catType: catName, catDisplay: true });
+    console.log(catCondition[catName], catConditionStandard[catName]);
   } else {
     setCatModalInfo({ catType: catName, catDisplay: false });
   }
-  console.log(catModalState, catConditionStandard);
 
   localStorage.setItem(
     "catCondition",

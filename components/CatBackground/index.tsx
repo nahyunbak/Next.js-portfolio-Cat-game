@@ -33,8 +33,9 @@ const CatBackground = () => {
   useEffect(() => {
     console.log(catModalInfo);
     useEffectCatModule;
-    return console.log(catModalInfo);
-  }, [setCatCondition]);
+
+    return console.log(catModalInfo, catCondition);
+  }, [setCatCondition, catModalInfo]);
 
   return (
     <>
@@ -89,15 +90,27 @@ const CatBackground = () => {
             src="/sun.png"
           />
         </CatBackgroundArea>
-        <NewCatModalWrapper>
+        <NewCatModalWrapper catDisplay={catModalInfo.catDisplay}>
           <NewCatModalArea>
-            <NewCatModalTitle>NPC고양이</NewCatModalTitle>
+            <NewCatModalTitle>{catModalInfo.catType}</NewCatModalTitle>
             <NewCatModalImg src="/npcCat.png" />
             <NewCatModalContents>
               본인이 NPC라는 사실을 전혀 모르는 눈치의 고양이. 갑자기 등장한
               나를 수상한 눈으로 바라보고 있다.
             </NewCatModalContents>
-            <NewCatModalCloseButton>닫기</NewCatModalCloseButton>
+            <NewCatModalCloseButton
+              onClick={() =>
+                AddCatCondition(
+                  "npcCat",
+                  catCondition,
+                  setCatCondition,
+                  catConditionStandard,
+                  setCatModalInfo
+                )
+              }
+            >
+              닫기
+            </NewCatModalCloseButton>
           </NewCatModalArea>
         </NewCatModalWrapper>
       </CatBackgroundWrapper>
