@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import {
+  catCollectionState,
   catConditionStandard,
   catConditionState,
   catModalState,
@@ -92,16 +93,19 @@ const CatBackground = () => {
         </CatBackgroundArea>
         <NewCatModalWrapper catDisplay={catModalInfo.catDisplay}>
           <NewCatModalArea>
-            <NewCatModalTitle>{catModalInfo.catType}</NewCatModalTitle>
-            <NewCatModalImg src="/npcCat.png" />
+            <NewCatModalTitle>
+              {catCollectionState[catModalInfo.catType].title}
+            </NewCatModalTitle>
+            <NewCatModalImg
+              src={catCollectionState[catModalInfo.catType].img}
+            />
             <NewCatModalContents>
-              본인이 NPC라는 사실을 전혀 모르는 눈치의 고양이. 갑자기 등장한
-              나를 수상한 눈으로 바라보고 있다.
+              {catCollectionState[catModalInfo.catType].contents}
             </NewCatModalContents>
             <NewCatModalCloseButton
               onClick={() =>
                 AddCatCondition(
-                  "npcCat",
+                  catModalInfo.catType,
                   catCondition,
                   setCatCondition,
                   catConditionStandard,

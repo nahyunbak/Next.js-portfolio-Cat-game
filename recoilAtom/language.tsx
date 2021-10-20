@@ -107,7 +107,7 @@ export const catConditionDefaultState = {
 
 //고양이 출현조건 기준을 관리함
 export const catConditionStandard = {
-  npcCat: 1,
+  npcCat: 0,
   shopperCat: 20,
   scroogeCat: 15,
   houseCat: 30,
@@ -127,18 +127,86 @@ export const catConditionStandard = {
 // 게임 리셋 컴포넌트도 추가하기
 
 // 고양이 콜렉션을 관리함
-export const catCollectionState = atom({
-  key: "catCollectionState",
-  default: {
-    collectedCat: ["npcCat"],
-    npcCat: {
-      title: "NPC 고양이",
-      contents:
-        "본인이 NPC라는 사실을 전혀 모르는 눈치의 고양이. 갑자기 등장한 나를 수상쩍게 쳐다보고 있다",
-      img: "/npcCat.png",
-    },
+export const catCollectionState = {
+  npcCat: {
+    title: "NPC 고양이",
+    contents:
+      "본인이 NPC라는 사실을 전혀 모르는 눈치의 고양이. 갑자기 등장한 나를 수상쩍게 쳐다보고 있다",
+    img: "/npcCat.png",
   },
-});
+  bookCat: {
+    title: "책벌레 고양이",
+    contents:
+      "책만 보면 즉시 식빵을 굽는 고양이. 늘 책 위에서만 잠드는 특이한 버릇이 있다.",
+    img: "/bookCat.png",
+  },
+  dancerCat: {
+    title: "딴따라 고양이",
+    contents:
+      "하도 집에만 있는 바람에 그만 춤바람이 난 고양이. 어쩐지 고양이가 아닌 것 같다.",
+    img: "/dancerCat.png",
+  },
+  dogCat: {
+    title: "개냥이",
+    contents:
+      "주인만 보면 멍멍 짖는 고양이. 본인을 고양이가 아닌 개라고 생각하고 있다.",
+    img: "/dogCat.png",
+  },
+  ghostCat: {
+    title: "투명 고양이",
+    contents:
+      "아무것도 없는 곳을 클릭하면 불쑥 튀어나오는 고양이. 얌전한 외모와 달리 사람 놀래키기를 좋아한다.",
+    img: "/ghostCat.png",
+  },
+  houseCat: {
+    title: "집순이 고양이",
+    contents:
+      "이불 밖은 위험하다고 철썩같이 믿는 고양이. 실제로 이불 밖으로 나가기를 몹시 꺼려한다.",
+    img: "/houseCat.png",
+  },
+  richCat: {
+    title: "재벌 고양이",
+    contents:
+      "사료 대신 츄르만 고집하는 고양이. 고양이 주제에 왠지 나보다 돈이 많아 보인다...",
+    img: "/richCat.png",
+  },
+  scroogeCat: {
+    title: "짠돌이 고양이",
+    contents:
+      "허구한 날 반품만 하는 블랙컨슈머 밑에서 자란 고양이. 오고가는 택배기사 탓에 늘 신경이 날카롭다.",
+    img: "/scroogeCat.png",
+  },
+  shopperCat: {
+    title: "쇼퍼홀릭 고양이",
+    contents:
+      "쇼핑을 즐기는 자본주의 고양이.  츄르를 잔뜩 사주지 않는 집사는 필요없어..! 라고 생각하는 듯하다.",
+    img: "/shopperCat.png",
+  },
+  stalkerCat: {
+    title: "스토커 고양이",
+    contents:
+      "왠지 주인을 보는 눈이 음흉한 고양이. 주인을 집요하게 따라다니며 괴롭힌다.",
+    img: "/stalkerCat.png",
+  },
+  titleCat: {
+    title: "제목학원 고양이",
+    contents:
+      "제목에 집착하는 고양이. 제목이 바뀔 때마다 멍하니 바라보는 게 취미다.",
+    img: "/titleCat.png",
+  },
+  treeCat: {
+    title: "나무 고양이",
+    contents:
+      "나무를 좋아하는 고양이. 파릇파릇한 나무는 좋아하지만 올라가는 건 좀 귀찮은 모양이다.",
+    img: "/treeCat.png",
+  },
+  woodCat: {
+    title: "선넘는 고양이",
+    contents:
+      "개발자가 임의로 만들어놓은 구분선에 올라탄 고양이. 이러라고 만든 구분선이 아닌데...",
+    img: "/woodCat.png",
+  },
+};
 
 // 고양이 콜렉션을 관리함
 export const catModalState = atom({
