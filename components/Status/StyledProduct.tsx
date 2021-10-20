@@ -63,13 +63,12 @@ export const CatCollectionBook = styled.img`
 
 //모달창
 
-export const OldCatModalWrapper = styled.div`
+export const OldCatModalWrapper = styled.div<any>`
   ${newCatModalWrapperStyle}
   width: 100vw;
   height: 100vh;
-
+  display: ${(props) => (props.catHistory ? "flex" : "none")};
   margin-top: -1800px;
-  flex-direction: column;
 `;
 
 export const OldCatModalPlace = styled.div`

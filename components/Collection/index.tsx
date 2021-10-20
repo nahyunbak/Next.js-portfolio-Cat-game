@@ -48,7 +48,7 @@ const Collection = () => {
     if (savedMoney) {
       setMoney(JSON.parse(savedMoney));
     }
-    useEffectCatModule;
+    useEffectCatModule(setCatCondition, setCollectedCat);
   }, [setProducts, setPurchasedProducts, setMoney, setCatCondition]);
 
   const refundProduct = (e, item: any) => {
@@ -81,6 +81,7 @@ const Collection = () => {
       setCatCondition,
       catConditionStandard,
       setCatModalInfo,
+      collectedCat,
       setCollectedCat
     );
   };

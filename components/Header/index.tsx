@@ -27,7 +27,7 @@ const Header = () => {
     if (savedCurrentTitleLan) {
       setCurrentTitleLan(JSON.parse(savedCurrentTitleLan));
     }
-    useEffectCatModule;
+    useEffectCatModule(setCatCondition, setCollectedCat);
   }, [setCurrentTitleLan]);
 
   const toggleTitle = () => {
@@ -45,6 +45,7 @@ const Header = () => {
       setCatCondition,
       catConditionStandard,
       setCatModalInfo,
+      collectedCat,
       setCollectedCat
     );
   };

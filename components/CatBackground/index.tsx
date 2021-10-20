@@ -35,7 +35,7 @@ const CatBackground = () => {
   const [collectedCat, setCollectedCat] = useRecoilState(collectedCatState);
 
   useEffect(() => {
-    useEffectCatModule;
+    useEffectCatModule(setCatCondition, setCollectedCat);
     console.log(collectedCat);
   }, [setCatCondition, catModalInfo]);
 
@@ -51,6 +51,7 @@ const CatBackground = () => {
                 setCatCondition,
                 catConditionStandard,
                 setCatModalInfo,
+                collectedCat,
                 setCollectedCat
               )
             }
@@ -64,6 +65,7 @@ const CatBackground = () => {
                 setCatCondition,
                 catConditionStandard,
                 setCatModalInfo,
+                collectedCat,
                 setCollectedCat
               )
             }
@@ -77,6 +79,7 @@ const CatBackground = () => {
                 setCatCondition,
                 catConditionStandard,
                 setCatModalInfo,
+                collectedCat,
                 setCollectedCat
               )
             }
@@ -90,6 +93,7 @@ const CatBackground = () => {
                 setCatCondition,
                 catConditionStandard,
                 setCatModalInfo,
+                collectedCat,
                 setCollectedCat
               )
             }
@@ -115,6 +119,7 @@ const CatBackground = () => {
                   setCatCondition,
                   catConditionStandard,
                   setCatModalInfo,
+                  collectedCat,
                   setCollectedCat
                 )
               }

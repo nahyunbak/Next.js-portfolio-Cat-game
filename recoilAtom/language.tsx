@@ -225,5 +225,7 @@ export const catModalState = atom({
 
 export const collectedCatState = atom({
   key: "collectedCatState",
-  default: [],
+  default: ["npcCat"],
 });
+
+export const collectedCatDefaultState = ["npcCat"];

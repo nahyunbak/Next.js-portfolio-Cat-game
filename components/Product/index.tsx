@@ -52,7 +52,7 @@ const Product = ({ list }) => {
     if (savedMoney) {
       setMoney(JSON.parse(savedMoney));
     }
-    useEffectCatModule;
+    useEffectCatModule(setCatCondition, setCollectedCat);
   }, [setProducts, setPurchasedProducts, setMoney, setCatCondition]);
 
   const purchaseProduct = (e, item: any) => {
@@ -89,6 +89,7 @@ const Product = ({ list }) => {
       setCatCondition,
       catConditionStandard,
       setCatModalInfo,
+      collectedCat,
       setCollectedCat
     );
   };

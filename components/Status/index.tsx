@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import {
   catCollectionState,
@@ -44,62 +44,92 @@ const Status = () => {
   );
   const [collectedCat, setCollectedCat] = useRecoilState(collectedCatState);
 
+  const [catHistory, setCatHistory] = useState(true);
+  const [currentCatHistory, setCurrentCatHistory] = useState(0);
   useEffect(() => {
-    useEffectCatModule;
+    useEffectCatModule(setCatCondition, setCollectedCat);
   }, [setCatCondition]);
+
+  const hideHistory = () => {
+    setCatHistory(false);
+  };
+
+  const revealHistory = () => {
+    setCatHistory(true);
+  };
+
+  const increaseCurrentCat = () => {
+    if (currentCatHistory === collectedCat.length - 1) {
+      setCurrentCatHistory(0);
+    } else {
+      setCurrentCatHistory((oldState) => oldState + 1);
+    }
+  };
+
+  const decreaseCurrentCat = () => {
+    if (currentCatHistory === 0) {
+      setCurrentCatHistory(collectedCat.length - 1);
+    } else {
+      setCurrentCatHistory((oldState) => oldState - 1);
+    }
+  };
 
   return (
     <>
       <StatusWrapper>
-        <StatusArea>
-          <StatusMoney
+        <StatusMoney
+          onClick={() =>
+            AddCatCondition(
+              "richCat",
+              catCondition,
+              setCatCondition,
+              catConditionStandard,
+              setCatModalInfo,
+              collectedCat,
+              setCollectedCat
+            )
+          }
+        >
+          ${money}
+        </StatusMoney>
+        <StatusDetail>
+          <CatCollectionBook
+            src="/catTower.png"
+            onClick={revealHistory}
+          ></CatCollectionBook>
+          <ResetButton
             onClick={() =>
-              AddCatCondition(
-                "richCat",
-                catCondition,
+              resetEverything(
                 setCatCondition,
-                catConditionStandard,
-                setCatModalInfo,
-                setCollectedCat
+                setPurchasedProduct,
+                setMoney,
+                setCollectedCat,
+                setCurrentCatHistory
               )
             }
           >
-            ${money}
-          </StatusMoney>
-          <StatusDetail>
-            <CatCollectionBook src="/catTower.png"></CatCollectionBook>
-            <ResetButton
-              onClick={() =>
-                resetEverything(setCatCondition, setPurchasedProduct, setMoney)
-              }
-            >
-              리셋
-            </ResetButton>
-          </StatusDetail>
-        </StatusArea>
-        <OldCatModalWrapper>
+            리셋
+          </ResetButton>
+        </StatusDetail>
+
+        <OldCatModalWrapper catHistory={catHistory}>
           <OldCatModalPlace>
-            <OldCatModalLeftArrow />
+            <OldCatModalLeftArrow onClick={decreaseCurrentCat} />
             <OldCatModalArea>
-              <OldCatModalTitle>npcCat</OldCatModalTitle>
-              <OldCatModalImg src="/npcCat.png" />
-              <OldCatModalContents>안녕하시게</OldCatModalContents>
-              <OldCatModalCloseButton
-                onClick={() =>
-                  AddCatCondition(
-                    catModalInfo.catType,
-                    catCondition,
-                    setCatCondition,
-                    catConditionStandard,
-                    setCatModalInfo,
-                    setCollectedCat
-                  )
-                }
-              >
+              <OldCatModalTitle>
+                {catCollectionState[collectedCat[currentCatHistory]].title}
+              </OldCatModalTitle>
+              <OldCatModalImg
+                src={catCollectionState[collectedCat[currentCatHistory]].img}
+              />
+              <OldCatModalContents>
+                {catCollectionState[collectedCat[currentCatHistory]].contents}
+              </OldCatModalContents>
+              <OldCatModalCloseButton onClick={hideHistory}>
                 닫기
               </OldCatModalCloseButton>
             </OldCatModalArea>
-            <OldCatModalRightArrow />
+            <OldCatModalRightArrow onClick={increaseCurrentCat} />
           </OldCatModalPlace>
         </OldCatModalWrapper>
       </StatusWrapper>
