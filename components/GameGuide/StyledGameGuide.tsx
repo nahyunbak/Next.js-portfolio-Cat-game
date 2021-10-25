@@ -73,10 +73,11 @@ export const GameGuideGuideWrapper = styled.div`
 `;
 
 export const GameGuideImg = styled.img`
-  width: 100px;
+  width: 200px;
 `;
 
 export const GameGuideText = styled.div`
+  width: 400px;
   font-size: 2rem;
   ${CenterCenterStyle};
 `;

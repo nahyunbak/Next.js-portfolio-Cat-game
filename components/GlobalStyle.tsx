@@ -102,10 +102,10 @@ export const GlobalProductItemButton = css`
 
 export const newCatModalWrapperStyle = css`
   ${verticalCenterStyle};
-  width: 100%;
+  width: 100vw;
   height: 400vh;
   position: fixed;
-  margin-top: -1500px;
+  margin-top: -50%;
   background-color: rgba(0, 0, 0, 0.3);
 `;
 
@@ -116,6 +116,8 @@ export const newCatModalAreaStyle = css`
   border-radius: 10px;
   background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
   opacity: 1;
+  position: fixed;
+  top: 30%;
 `;
 export const newCatModalTitleStyle = css`
   width: 300px;

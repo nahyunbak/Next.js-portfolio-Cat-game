@@ -44,7 +44,7 @@ const Status = () => {
   );
   const [collectedCat, setCollectedCat] = useRecoilState(collectedCatState);
 
-  const [catHistory, setCatHistory] = useState(true);
+  const [catHistory, setCatHistory] = useState(false);
   const [currentCatHistory, setCurrentCatHistory] = useState(0);
   useEffect(() => {
     useEffectCatModule(setCatCondition, setCollectedCat);

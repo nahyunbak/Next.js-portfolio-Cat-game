@@ -36,7 +36,6 @@ const CatBackground = () => {
 
   useEffect(() => {
     useEffectCatModule(setCatCondition, setCollectedCat);
-    console.log(collectedCat);
   }, [setCatCondition, catModalInfo]);
 
   return (
@@ -134,33 +133,3 @@ const CatBackground = () => {
 };
 
 export default CatBackground;
-
-//고양이 배열 + 각 배열의 아이템을 키값으로 가진 또다른 배열. 여기에는 제목과 파일명, 콘텐츠가 적혀 있다.을 가지고.. 제목도 만들고..
-
-//bool 값과 고양이 이름을 한꺼번에 전달하면 될 듯하다?
-//닫기를 누르면 1이 추가된다.
-/**
- * 
- * export const NewCatModalWrapper = styled.div`
-  ${verticalCenterStyle};
-  width: 500px;
-  height: 600px;
-  background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
-`;
-
-export const NewCatModalTitle = styled.div`
-  font-size: 2rem;
-  color: black;
-  background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
-`;
-
-export const NewCatModalImg = styled.img`
-  width: 400px;
-`;
-
-export const NewCatModalContents = styled.div`
-  font-size: 1.5rem;
-  color: black;
-`;
-
- */

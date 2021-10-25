@@ -99,7 +99,6 @@ export const OldCatModalCloseButton = styled.div`
 
 export const OldCatModalLeftArrow = styled(IoIosArrowBack)`
   font-size: 3rem;
-
   color: white;
   cursor: pointer;
 `;
