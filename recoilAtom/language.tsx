@@ -87,6 +87,7 @@ export const catConditionState = atom({
 });
 
 //고양이 출현조건 리셋하기
+//다음에는 recoil의 리셋 이용하기
 export const catConditionDefaultState = {
   npcCat: 0,
   shopperCat: 0,
