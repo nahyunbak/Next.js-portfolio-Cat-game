@@ -72,9 +72,11 @@ export const OldCatModalWrapper = styled.div<any>`
 `;
 
 export const OldCatModalPlace = styled.div`
-  width: 600px;
+  width: 900px;
   height: 560px;
   ${horizontalCenterStyle}
+  position: fixed;
+  top: 30%;
 `;
 export const OldCatModalArea = styled.div`
   ${newCatModalAreaStyle};
@@ -101,11 +103,13 @@ export const OldCatModalLeftArrow = styled(IoIosArrowBack)`
   font-size: 3rem;
   color: white;
   cursor: pointer;
+  margin-right: 100px;
 `;
 
 export const OldCatModalRightArrow = styled(IoIosArrowForward)`
   font-size: 3rem;
-
+  top: 30%;
   color: white;
   cursor: pointer;
+  margin-left: 100px;
 `;

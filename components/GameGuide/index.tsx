@@ -66,7 +66,7 @@ const GameGuide = () => {
                 <>
                   <GameGuideImg src="/catTower.png" />
                   <GameGuideText>
-                    3. 캣타워를 누르면 그간 모은 고양이를 확인할 수 있다
+                    3. 캣타워를 누르면 그동안 모은 고양이를 확인할 수 있다.
                   </GameGuideText>
                 </>
               ) : (
@@ -76,7 +76,7 @@ const GameGuide = () => {
                 <>
                   <GameGuideImg src="/reset.jpg" />
                   <GameGuideText>
-                    4. 리셋 버튼을 누르면 그간 진행을 리셋시킬 수 있다
+                    4. 리셋 버튼을 누르면 그동안의 진행을 리셋시킬 수 있다.
                   </GameGuideText>
                 </>
               ) : (

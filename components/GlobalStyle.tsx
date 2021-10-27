@@ -147,7 +147,6 @@ export const newCatModalImgStyle = css`
 export const newCatModalContentsStyle = css`
   font-size: 1.05rem;
   padding: 10px;
-
   line-height: 25px;
   font-weight: 500;
   border-radius: 10px;
