@@ -1,9 +1,6 @@
-import { useRecoilState } from "recoil";
 import {
   catConditionDefaultState,
-  catConditionState,
   collectedCatDefaultState,
-  collectedCatState,
   moneyDefaultState,
   PurchaseDefaultState,
 } from "../../recoilAtom/language";
@@ -14,9 +11,7 @@ export const useEffectCatModule = (setCatCondition, setCollectedCat) => {
 
   if (savedCatCondition) {
     setCatCondition(JSON.parse(savedCatCondition));
-    console.log("true");
   } else {
-    console.log("false");
   }
   if (savedCollectedCat) {
     setCollectedCat(JSON.parse(savedCollectedCat));

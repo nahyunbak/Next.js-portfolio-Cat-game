@@ -35,6 +35,7 @@ export const StatusMoney = styled.div`
   font-size: 8rem;
   background: #83c283;
   border-radius: 10px;
+  cursor: pointer;
 `;
 
 export const StatusDetail = styled.div`

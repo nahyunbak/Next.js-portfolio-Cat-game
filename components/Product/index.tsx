@@ -40,7 +40,6 @@ const Product = ({ list }) => {
     const savedLeftdValue = localStorage.getItem("left");
     const savedPurchasedValue = localStorage.getItem("purchased");
     const savedMoney = localStorage.getItem("money");
-    console.log(catModalInfo);
 
     if (savedLeftdValue) {
       setProducts(JSON.parse(savedLeftdValue));

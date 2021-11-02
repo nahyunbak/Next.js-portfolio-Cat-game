@@ -32,6 +32,7 @@ export const CatImg = styled.img`
 `;
 
 export const CatBackgroundHouse = styled.img`
+  cursor: pointer;
   width: 600px;
   position: absolute;
   bottom: 0;
@@ -39,6 +40,7 @@ export const CatBackgroundHouse = styled.img`
 `;
 
 export const CatBackgroundTree = styled.img`
+  cursor: pointer;
   width: 1000px;
   position: absolute;
   bottom: 0;
@@ -46,12 +48,14 @@ export const CatBackgroundTree = styled.img`
 `;
 
 export const CatBackgroundDog = styled.img`
+  cursor: pointer;
   width: 300px;
   position: absolute;
   bottom: 0px;
 `;
 
 export const CatBackgroundSun = styled.img`
+  cursor: pointer;
   width: 250px;
   right: 380px;
   top: 30px;
