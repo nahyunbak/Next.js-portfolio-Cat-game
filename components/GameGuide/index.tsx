@@ -46,11 +46,9 @@ const GameGuide = () => {
                 <>
                   <GameGuideImg src="/sun.png" />
                   <GameGuideText>
-                    1. 아무 이미지나 여러 번 클릭한다.
+                    1. 아무 이미지나 연타한다. 간간히 화장품도 질러주자
                     <br />
-                    (힌트: 수십 번은 클릭해야 얻을 수 있는 고양이가 대부분이다.)
-                    <br />
-                    간간히 화장품도 질러주자)
+                    (힌트: 참을성 있게 클릭해 보자.)
                   </GameGuideText>
                 </>
               ) : (

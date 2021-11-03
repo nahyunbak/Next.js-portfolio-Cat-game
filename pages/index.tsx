@@ -23,7 +23,7 @@ export default function Home({ list }) {
   return (
     <>
       <Head>
-        <title>안녕</title>
+        <title>고양이를 화장품으로 꼬셔보았습니다만</title>
       </Head>
 
       <Header />
